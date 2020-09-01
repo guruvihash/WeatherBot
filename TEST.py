@@ -7,14 +7,14 @@ import os
 from flask import Flask,request
 from oauth2client.service_account import ServiceAccountCredentials
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('', scope)#import your json credential files
 client = gspread.authorize(creds)
 
 sheet = client.open("DATA").sheet1
 user = {}
-TOKEN = "923264806:AAFyOlJsZh3nYZ9xDESug2KuKUhkR2CYAj0"
-bot = telebot.TeleBot("923264806:AAFyOlJsZh3nYZ9xDESug2KuKUhkR2CYAj0")
-pixsbay = "17973464-308c0da891e7d9160b0528fb1"
+TOKEN = ""#import your telegram token
+bot = telebot.TeleBot(TOKEN)
+pixsbay = ""#import your picsbay token
 server=Flask(__name__)
 
 @bot.message_handler(commands=['start'])
@@ -41,7 +41,7 @@ def echo_all(message):
 	print(message)
 	global user
 	if(user[str(message.from_user.id)]["search"]):
-		api_key = "bce472f4eaf2c8067fe5f397d05babeb"
+		api_key = ""#import your open weather api
   
 		base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
@@ -114,7 +114,7 @@ def getMessage():
 @server.route("/")
 def webhook():
    bot.remove_webhook()
-   bot.set_webhook(url="https://frozen-dusk-31429.herokuapp.com/" + TOKEN) #ADD YOUR WEBHOOK URL
+   bot.set_webhook(url="" + TOKEN) #ADD YOUR WEBHOOK URL
    return "!", 200
 if __name__ == "__main__":
    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
