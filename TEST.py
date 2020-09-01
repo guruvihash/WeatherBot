@@ -114,7 +114,7 @@ def getMessage():
 @server.route("/")
 def webhook():
    bot.remove_webhook()
-   bot.set_webhook(url="https://immense-fortress-75425.herokuapp.com/" + TOKEN) #ADD YOUR WEBHOOK URL
+   bot.set_webhook(url="https://frozen-dusk-31429.herokuapp.com/" + TOKEN) #ADD YOUR WEBHOOK URL
    return "!", 200
 if __name__ == "__main__":
    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
