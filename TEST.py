@@ -17,12 +17,12 @@ bot = telebot.TeleBot("923264806:AAFyOlJsZh3nYZ9xDESug2KuKUhkR2CYAj0")
 pixsbay = "17973464-308c0da891e7d9160b0528fb1"
 server=Flask(__name__)
 
-@bot.message_handler(commands=['start'])
+"""@bot.message_handler(commands=['start'])
 def send_welcome(message):
 	global user
 	user[str(message.from_user.id)]={"search" : False}
 	#print(message.text)
-	bot.reply_to(message, "Howdy, how are you doing?\n Type /search to begin")
+	bot.reply_to(message, "Howdy, how are you doing?\n Type /search to begin")"""
 
 @bot.message_handler(commands=['search'])
 def send_info(message):
